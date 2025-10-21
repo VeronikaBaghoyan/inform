@@ -10,10 +10,8 @@ interface Program {
   title: { am: string; en: string };
   level: { am: string; en: string };
   duration: string;
-  credits: number;
   description: { am: string; en: string };
   subjects: { am: string[]; en: string[] };
-  career: { am: string[]; en: string[] };
   requirements: { am: string[]; en: string[] };
 }
 
@@ -27,51 +25,72 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
         am: 'Ինֆորմատիկա և կիրառական մաթեմատիկա', 
         en: 'Informatics and Applied Mathematics' 
       },
-      level: { am: 'Բակալավրիատ', en: 'Bachelor\'s Degree' },
+      level: { am: 'Բակալավրիատի առկա', en: 'Bachelor\'s Full-time' },
       duration: '4 ' + (language === 'am' ? 'տարի' : 'years'),
-      credits: 240,
       description: {
         am: 'Այս ծրագիրը պատրաստում է մասնագետներ ինֆորմատիկայի, ծրագրավորման և կիրառական մաթեմատիկայի ոլորտներում: Ուսանողները ծանոթանում են ժամանակակից տեխնոլոգիաների և մեթոդների հետ:',
         en: 'This program prepares specialists in informatics, programming, and applied mathematics. Students become familiar with modern technologies and methods.'
       },
       subjects: {
         am: [
-          'Ծրագրավորման հիմունքներ',
-          'Տվյալների կառուցվածք և ալգորիթմներ',
+          'Mobile տեխնոլոգիաներ',
+          'Ծրագրերի թեստավորում',
+          'Արհեստական բանականություն և մեքենայական ուսուցում',
+          'Տվյալների կառուցվածքներ և ալգորիթմներ',
           'Տվյալների բազաներ',
-          'Վեբ տեխնոլոգիաներ',
-          'Մաթեմատիկական վերլուծություն',
-          'Գծային ալգեբրա',
-          'Հավանականությունների տեսություն',
-          'Մաթեմատիկական մոդելավորում'
+          'Տեղեկատվության պահպանման և ցանցային շրջանառման տեխնոլոգիաներ',
+          'Ընդհանուր էլեկտրատեխնիկա և չափագիտություն',
+          'Համակարգիչների կիրառում',
+          'Համակարգային ծրագրավորում',
+          'Ծրագրավորման հիմունքներ',
+          'Web-ծրագրավորում',
+          'Օբյեկտ - կողմնորոշված ծրագրավորում',
+          'Ինֆորմատիկա',
+          'Սերվերային ծրագրավորում',
+          'Ինֆորմատիկայի մաթեմատիկական հիմունքներ',
+          'Հաշվողական համակարգերի արատորոշում',
+          'Համակարգչային սխեմոտեխնիկա',
+          'Կառավարման տեղեկատվական համակարգեր',
+          'Տեղեկատվության պաշտպանության հիմունքներ',
+          'Թվային սխեմաների և համակարգերի նախագծում',
+          'Թվային համակարգերի նախագծում',
+          'Հաշվողական համակարգերի ճարտարապետություն',
+          'Միկրոպրոցեսորային համակարգեր',
+          'Կառավարման հիմունքներ',
+          'Ցանցային օպերացիոն համակարգեր',
+          'Հաշվողական համակարգերի ճարտարապետություն',
+          'Համակարգչային մասնագիտացված սխեմաներ',
+          'Համակարգչային ցանցերի կազմակերպում'
         ],
         en: [
-          'Programming Fundamentals',
+          'Mobile Technologies',
+          'Software Testing',
+          'Artificial Intelligence and Machine Learning',
           'Data Structures and Algorithms',
           'Databases',
-          'Web Technologies',
-          'Mathematical Analysis',
-          'Linear Algebra',
-          'Probability Theory',
-          'Mathematical Modeling'
-        ]
-      },
-      career: {
-        am: [
-          'Ծրագրակազմ ինժեներ',
-          'Վեբ մշակիչ',
-          'Տվյալների վերլուծաբան',
-          'Համակարգային վարիչ',
-          'IT կոնսուլտանտ',
-          'Մաթեմատիկական մոդելավորման մասնագետ'
-        ],
-        en: [
-          'Software Engineer',
-          'Web Developer',
-          'Data Analyst',
-          'System Administrator',
-          'IT Consultant',
-          'Mathematical Modeling Specialist'
+          'Information Storage and Network Circulation Technologies',
+          'General Electrical Engineering and Metrology',
+          'Computer Applications',
+          'System Programming',
+          'Programming Fundamentals',
+          'Web Programming',
+          'Object-Oriented Programming',
+          'Informatics',
+          'Server Programming',
+          'Mathematical Foundations of Informatics',
+          'Computing Systems Diagnostics',
+          'Computer Circuit Engineering',
+          'Management Information Systems',
+          'Information Security Fundamentals',
+          'Digital Circuits and Systems Design',
+          'Digital Systems Design',
+          'Computing Systems Architecture',
+          'Microprocessor Systems',
+          'Management Fundamentals',
+          'Network Operating Systems',
+          'Computing Systems Architecture',
+          'Computer Specialized Circuits',
+          'Computer Networks Organization'
         ]
       },
       requirements: {
@@ -92,68 +111,89 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
     {
       id: 2,
       title: { 
-        am: 'Ֆիզիկա և տեխնոլոգիաներ', 
-        en: 'Physics and Technologies' 
+        am: 'Ինֆորմատիկա և կիրառական մաթեմատիկա', 
+        en: 'Informatics and Applied Mathematics' 
       },
-      level: { am: 'Բակալավրիատ', en: 'Bachelor\'s Degree' },
-      duration: '4 ' + (language === 'am' ? 'տարի' : 'years'),
-      credits: 240,
+      level: { am: 'Բակալավրիատի հեռակա', en: 'Bachelor\'s Distance Learning' },
+      duration: '5 ' + (language === 'am' ? 'տարի' : 'years'),
       description: {
-        am: 'Ծրագիրը ուղղված է տեսական և կիրառական ֆիզիկայի, նանոտեխնոլոգիաների և նյութագիտության ոլորտների մասնագետների պատրастմանը:',
-        en: 'The program is aimed at training specialists in theoretical and applied physics, nanotechnology, and materials science.'
+        am: 'Հեռակա ուսուցման ծրագիր, որը թույլ է տալիս ուսանողներին ստանալ բարձրորակ կրթություն ինֆորմատիկայի ոլորտում՝ չխանգարելով իրենց աշխատանքային գործունեությանը:',
+        en: 'Distance learning program that allows students to receive high-quality education in informatics without interfering with their work activities.'
       },
       subjects: {
         am: [
-          'Ընդհանուր ֆիզիկա',
-          'Տեսական մեխանիկա',
-          'Էլեկտրադինամիկա',
-          'Քվանտային մեխանիկա',
-          'Կոշտ մարմնի ֆիզիկա',
-          'Նանոֆիզիկա',
-          'Մաթեմատիկական ֆիզիկա',
-          'Համակարգչային մոդելավորում'
+          'Mobile տեխնոլոգիաներ',
+          'Ծրագրերի թեստավորում',
+          'Արհեստական բանականություն և մեքենայական ուսուցում',
+          'Տվյալների կառուցվածքներ և ալգորիթմներ',
+          'Տվյալների բազաներ',
+          'Տեղեկատվության պահպանման և ցանցային շրջանառման տեխնոլոգիաներ',
+          'Ընդհանուր էլեկտրատեխնիկա և չափագիտություն',
+          'Համակարգիչների կիրառում',
+          'Համակարգային ծրագրավորում',
+          'Ծրագրավորման հիմունքներ',
+          'Web-ծրագրավորում',
+          'Օբյեկտ - կողմնորոշված ծրագրավորում',
+          'Ինֆորմատիկա',
+          'Սերվերային ծրագրավորում',
+          'Ինֆորմատիկայի մաթեմատիկական հիմունքներ',
+          'Հաշվողական համակարգերի արատորոշում',
+          'Համակարգչային սխեմոտեխնիկա',
+          'Կառավարման տեղեկատվական համակարգեր',
+          'Տեղեկատվության պաշտպանության հիմունքներ',
+          'Թվային սխեմաների և համակարգերի նախագծում',
+          'Թվային համակարգերի նախագծում',
+          'Հաշվողական համակարգերի ճարտարապետություն',
+          'Միկրոպրոցեսորային համակարգեր',
+          'Կառավարման հիմունքներ',
+          'Ցանցային օպերացիոն համակարգեր',
+          'Հաշվողական համակարգերի ճարտարապետություն',
+          'Համակարգչային մասնագիտացված սխեմաներ',
+          'Համակարգչային ցանցերի կազմակերպում'
         ],
         en: [
-          'General Physics',
-          'Theoretical Mechanics',
-          'Electrodynamics',
-          'Quantum Mechanics',
-          'Solid State Physics',
-          'Nanophysics',
-          'Mathematical Physics',
-          'Computer Modeling'
-        ]
-      },
-      career: {
-        am: [
-          'Ֆիզիկոս հետազոտող',
-          'Լաբորատոր ֆիզիկոս',
-          'Նանոտեխնոլոգիաների մասնագետ',
-          'Տեխնիկական ֆիզիկոս',
-          'Գիտական հետազոտող',
-          'Ֆիզիկայի դասախոս'
-        ],
-        en: [
-          'Research Physicist',
-          'Laboratory Physicist',
-          'Nanotechnology Specialist',
-          'Technical Physicist',
-          'Scientific Researcher',
-          'Physics Lecturer'
+          'Mobile Technologies',
+          'Software Testing',
+          'Artificial Intelligence and Machine Learning',
+          'Data Structures and Algorithms',
+          'Databases',
+          'Information Storage and Network Circulation Technologies',
+          'General Electrical Engineering and Metrology',
+          'Computer Applications',
+          'System Programming',
+          'Programming Fundamentals',
+          'Web Programming',
+          'Object-Oriented Programming',
+          'Informatics',
+          'Server Programming',
+          'Mathematical Foundations of Informatics',
+          'Computing Systems Diagnostics',
+          'Computer Circuit Engineering',
+          'Management Information Systems',
+          'Information Security Fundamentals',
+          'Digital Circuits and Systems Design',
+          'Digital Systems Design',
+          'Computing Systems Architecture',
+          'Microprocessor Systems',
+          'Management Fundamentals',
+          'Network Operating Systems',
+          'Computing Systems Architecture',
+          'Computer Specialized Circuits',
+          'Computer Networks Organization'
         ]
       },
       requirements: {
         am: [
           'Ընդհանուր միջնակարգ կրթություն',
-          'Ֆիզիկա (նվազագույն 70%)',
-          'Մաթեմատիկա (նվազագույն 65%)',
-          'Քիմիա (նվազագույն 50%)'
+          'Մաթեմատիկա (նվազագույն 60%)',
+          'Ֆիզիկա (նվազագույն 50%)',
+          'Հայոց լեզու և գրականություն'
         ],
         en: [
           'General Secondary Education',
-          'Physics (minimum 70%)',
-          'Mathematics (minimum 65%)',
-          'Chemistry (minimum 50%)'
+          'Mathematics (minimum 60%)',
+          'Physics (minimum 50%)',
+          'Armenian Language and Literature'
         ]
       }
     },
@@ -165,49 +205,52 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
       },
       level: { am: 'Մագիստրատուրա', en: 'Master\'s Degree' },
       duration: '2 ' + (language === 'am' ? 'տարի' : 'years'),
-      credits: 120,
       description: {
         am: 'Խորացված ուսումնական ծրագիր, որը նպատակ ունի պատրաստել բարձր որակավորում ունեցող մասնագետներ գիտական հետազոտությունների և առաջադեմ տեխնոլոգիաների ոլորտում:',
         en: 'Advanced study program aimed at preparing highly qualified specialists in scientific research and advanced technologies.'
       },
       subjects: {
         am: [
-          'Արհեստական բանականության հիմունքներ',
-          'Մեքենական ուսուցում',
-          'Մեծ տվյալների վերլուծություն',
-          'Գիտական հաշվարկներ',
-          'Նյուրոցանցեր',
-          'Ծրագրային ինժեներություն',
-          'Տվյալների կառուցվածք (առաջադեմ)',
-          'Մագիստրական թեզ'
+          'Արհեստական բանականության ծրագրագործիքային միջոցներ',
+          'Զուգահեռ համակարգչային ճարտարապետություններ',
+          'Արհեստական բանականության համակարգեր',
+          'Առաջատար մոբայլ տեխնոլոգիաներ',
+          'Մաթեմատիկական ծրագրավորում',
+          'Ծրագրավորում Net միջավայրում',
+          'Առաջատար web-տեխնոլոգիաներ',
+          'Համակարգչային ցանցերի նախագծում և իրականացում',
+          'Հաշվողական համակարգերի և ցանցեր սերվերներ',
+          'Առաջատար ծրագրային ճարտարապետություն',
+          'Նեյրոնային ցանցեր',
+          'Քվանտային ծրագրավորման համակարգեր',
+          'Միկրո և նանոտեխնոլոգիաներ',
+          'Ցանցային համակարգերի պաշտպանություն և անվտանգություն',
+          'Ծրագրային համալիր MATLAB',
+          'Մեծ տվյալների մշակման համակարգեր',
+          'Բարդ համակարգերի մոդելավորում և հուսալիություն',
+          'Օբյեկտ կողմնորոշված վերլուծություն և նախագծում',
+          'Որոշումների կայացման տեսություն'
         ],
         en: [
-          'Fundamentals of Artificial Intelligence',
-          'Machine Learning',
-          'Big Data Analysis',
-          'Scientific Computing',
+          'Artificial Intelligence Software Tools',
+          'Parallel Computer Architectures',
+          'Artificial Intelligence Systems',
+          'Advanced Mobile Technologies',
+          'Mathematical Programming',
+          'Programming in .Net Environment',
+          'Advanced Web Technologies',
+          'Computer Networks Design and Implementation',
+          'Computing Systems and Network Servers',
+          'Advanced Software Architecture',
           'Neural Networks',
-          'Software Engineering',
-          'Advanced Data Structures',
-          'Master\'s Thesis'
-        ]
-      },
-      career: {
-        am: [
-          'Գիտական հետազոտող',
-          'AI մասնագետ',
-          'Տվյալների գիտնական',
-          'Ծրագրային ճարտարապետ',
-          'Տեխնիկական տնօրեն',
-          'Ակադեմիական կարիերա'
-        ],
-        en: [
-          'Research Scientist',
-          'AI Specialist',
-          'Data Scientist',
-          'Software Architect',
-          'Technical Director',
-          'Academic Career'
+          'Quantum Programming Systems',
+          'Micro and Nanotechnologies',
+          'Network Systems Protection and Security',
+          'MATLAB Software Complex',
+          'Big Data Processing Systems',
+          'Complex Systems Modeling and Reliability',
+          'Object-Oriented Analysis and Design',
+          'Decision Making Theory'
         ]
       },
       requirements: {
@@ -255,20 +298,12 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex items-center">
                     <Clock className="h-6 w-6 text-yellow-400 mr-3" />
                     <div>
                       <div className="text-sm opacity-90">{t.programs.duration}</div>
                       <div className="font-semibold">{program.duration}</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center">
-                    <Award className="h-6 w-6 text-yellow-400 mr-3" />
-                    <div>
-                      <div className="text-sm opacity-90">{t.programs.credits}</div>
-                      <div className="font-semibold">{program.credits} {language === 'am' ? 'կրեդիտ' : 'credits'}</div>
                     </div>
                   </div>
                   
@@ -312,24 +347,10 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
                         <BookOpen className="h-5 w-5 text-blue-600 mr-2" />
                         {language === 'am' ? 'Հիմնական առարկաներ' : 'Main Subjects'}
                       </h4>
-                      <div className="grid grid-cols-1 gap-2">
+                      <div className="grid grid-cols-1 gap-2 max-h-96 overflow-y-auto">
                         {program.subjects[language].map((subject, index) => (
                           <div key={index} className="bg-blue-50 px-3 py-2 rounded-lg text-sm text-blue-800 font-medium">
                             {subject}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                        <Award className="h-5 w-5 text-green-600 mr-2" />
-                        {language === 'am' ? 'Կարիերայի հեռանկարներ' : 'Career Prospects'}
-                      </h4>
-                      <div className="grid grid-cols-1 gap-2">
-                        {program.career[language].map((career, index) => (
-                          <div key={index} className="bg-green-50 px-3 py-2 rounded-lg text-sm text-green-800 font-medium">
-                            {career}
                           </div>
                         ))}
                       </div>
