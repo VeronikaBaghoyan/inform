@@ -37,7 +37,7 @@ export default function StaffPage({ language }: StaffPageProps) {
       },
       email: 'avetvarazdat@gmail.com',
       phone: '+374 77701656',
-      image: '+374 77701656',
+      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
       bio: {
         am: 'Ունի 12 տարվա դասավանդման փորձ ինֆորմատիկայի և համակարգչային գիտությունների ոլորտում:',
         en: 'He has 12 years of teaching experience in the field of informatics and computer science.'
@@ -50,84 +50,8 @@ export default function StaffPage({ language }: StaffPageProps) {
     {
       id: 2,
       name: { 
-        am: 'Դր. Մարիամ Հակոբյան', 
-        en: 'Dr. Mariam Hakobyan' 
-      },
-      position: { 
-        am: 'Պրոֆեսոր', 
-        en: 'Professor' 
-      },
-      degree: { 
-        am: 'Ֆիզիկամաթեմատիկական գիտությունների դոկտոր', 
-        en: 'Doctor of Physical and Mathematical Sciences' 
-      },
-      email: 'm.hakobyan@gsu.am',
-      phone: '+374 264 2-25-14',
-      image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
-      bio: {
-        am: 'Մասնագիտանում է մաթեմատիկական վերլուծության և դիֆերենցիալ հավասարումների ոլորտում: Հեղինակ է 50+ գիտական աշխատությունների:',
-        en: 'Specializes in mathematical analysis and differential equations. Author of 50+ scientific publications.'
-      },
-      specialization: {
-        am: 'Մաթեմատիկական վերլուծություն, դիֆերենցիալ հավասարումներ',
-        en: 'Mathematical Analysis, Differential Equations'
-      }
-    },
-    {
-      id: 3,
-      name: { 
-        am: 'Դր. Տիգրան Ավանեսյան', 
-        en: 'Dr. Tigran Avanesyan' 
-      },
-      position: { 
-        am: 'Դոցենտ', 
-        en: 'Associate Professor' 
-      },
-      degree: { 
-        am: 'Ֆիզիկամաթեմատիկական գիտությունների թեկնածու', 
-        en: 'Candidate of Physical and Mathematical Sciences' 
-      },
-      email: 't.avanesyan@gsu.am',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-      bio: {
-        am: 'Զբաղվում է տեսական ֆիզիկայի և քվանտային մեխանիկայի հետազոտություններով: Մասնակցում է միջազգային գիտական նախագծերի:',
-        en: 'Conducts research in theoretical physics and quantum mechanics. Participates in international scientific projects.'
-      },
-      specialization: {
-        am: 'Տեսական ֆիզիկա, քվանտային մեխանիկա',
-        en: 'Theoretical Physics, Quantum Mechanics'
-      }
-    },
-    {
-      id: 4,
-      name: { 
-        am: 'Անի Մարտիրոսյան', 
-        en: 'Ani Martirosyan' 
-      },
-      position: { 
-        am: 'Ավագ դասախոս', 
-        en: 'Senior Lecturer' 
-      },
-      degree: { 
-        am: 'Տեխնիկական գիտությունների թեկնածու', 
-        en: 'Candidate of Technical Sciences' 
-      },
-      email: 'a.martirosyan@gsu.am',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg',
-      bio: {
-        am: 'Մասնագիտանում է վեբ տեխնոլոգիաների և տվյալների բազաների ոլորտում: Ղեկավարում է ուսանողական ծրագրավորման ակումբը:',
-        en: 'Specializes in web technologies and databases. Leads the student programming club.'
-      },
-      specialization: {
-        am: 'Վեբ տեխնոլոգիաներ, տվյալների բազաներ',
-        en: 'Web Technologies, Databases'
-      }
-    },
-    {
-      id: 5,
-      name: { 
-        am: 'Դավիթ Սարգսյան', 
-        en: 'David Sargsyan' 
+        am: 'Գասպարյան Շահեն', 
+        en: 'Gasparyan Shahen' 
       },
       position: { 
         am: 'Դասախոս', 
@@ -137,41 +61,265 @@ export default function StaffPage({ language }: StaffPageProps) {
         am: 'Մագիստրոս', 
         en: 'Master\'s Degree' 
       },
-      email: 'd.sargsyan@gsu.am',
-      image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg',
+      email: 's.gasparyan@gsu.am',
+      image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
       bio: {
-        am: 'Երիտասարդ մասնագետ, ով մասնագիտանում է ծրագրավորման լեզուների և ալգորիթմների ոլորտում: Ակտիվ մասնակից է տեխնոլոգիական կոնֆերանսների:',
-        en: 'Young specialist specializing in programming languages and algorithms. Active participant in tech conferences.'
+        am: 'Մասնագիտանում է սերվերային և վեբ ծրագրավորման ոլորտում:',
+        en: 'Specializes in server-side and web programming.'
       },
       specialization: {
-        am: 'Ծրագրավորման լեզուներ, ալգորիթմներ',
-        en: 'Programming Languages, Algorithms'
+        am: 'Սերվերային ծրագրավորում, Web-ծրագրավորում',
+        en: 'Server Programming, Web Programming'
+      }
+    },
+    {
+      id: 3,
+      name: { 
+        am: 'Սարգսյան Երեմ', 
+        en: 'Sargsyan Yerem' 
+      },
+      position: { 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
+      },
+      degree: { 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
+      },
+      email: 'y.sargsyan@gsu.am',
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
+      bio: {
+        am: 'Մասնագիտանում է ծրագրերի թեստավորման ոլորտում:',
+        en: 'Specializes in software testing.'
+      },
+      specialization: {
+        am: 'Ծրագրերի թեստավորում',
+        en: 'Software Testing'
+      }
+    },
+    {
+      id: 4,
+      name: { 
+        am: 'Մաստոյան Կարեն', 
+        en: 'Mastoyan Karen' 
+      },
+      position: { 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
+      },
+      degree: { 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
+      },
+      email: 'k.mastoyan@gsu.am',
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg',
+      bio: {
+        am: 'Մասնագիտանում է հաշվողական համակարգերի արատորոշման և մոբայլ տեխնոլոգիաների ոլորտում:',
+        en: 'Specializes in computational systems diagnostics and mobile technologies.'
+      },
+      specialization: {
+        am: 'Հաշվողական համակարգերի արատորոշում, Mobile տեխնոլոգիաներ',
+        en: 'Computational Systems Diagnostics, Mobile Technologies'
+      }
+    },
+    {
+      id: 5,
+      name: { 
+        am: 'Բալագոզյան Արմինե', 
+        en: 'Balagozyan Armine' 
+      },
+      position: { 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
+      },
+      degree: { 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
+      },
+      email: 'a.balagozyan@gsu.am',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+      bio: {
+        am: 'Մասնագիտանում է էլեկտրոնային կառավարման և տեղեկատվական համակարգերի ոլորտում:',
+        en: 'Specializes in electronic control and information management systems.'
+      },
+      specialization: {
+        am: 'Էլեկտրոնային կառավարման ցանցային համակարգեր, Կառավարման տեղեկատվական համակարգեր',
+        en: 'Electronic Control Network Systems, Management Information Systems'
       }
     },
     {
       id: 6,
       name: { 
-        am: 'Դր. Նանե Պետրոսյան', 
-        en: 'Dr. Nane Petrosyan' 
+        am: 'Միրիբյան Արթուր', 
+        en: 'Miribyan Arthur' 
       },
       position: { 
-        am: 'Պրոֆեսոր', 
-        en: 'Professor' 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
       },
       degree: { 
-        am: 'Ֆիզիկամաթեմատիկական գիտությունների դոկտոր', 
-        en: 'Doctor of Physical and Mathematical Sciences' 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
       },
-      email: 'n.petrosyan@gsu.am',
-      phone: '+374 264 2-26-15',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+      email: 'a.miribyan@gsu.am',
+      image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg',
       bio: {
-        am: 'Հանրապետության մեջ ճանաչված մասնագետ գծային ալգեբրայի և հندկական մոդելավորման ոլորտում: Հեղինակ է բազմաթիվ դասագրքերի:',
-        en: 'Recognized specialist in linear algebra and geometric modeling. Author of multiple textbooks.'
+        am: 'Մասնագիտանում է էլեկտրատեխնիկայի և համակարգիչների կիրառման ոլորտում:',
+        en: 'Specializes in electrical engineering and computer applications.'
       },
       specialization: {
-        am: 'Գծային ալգեբրա, հندկական մոդելավորում',
-        en: 'Linear Algebra, Geometric Modeling'
+        am: 'Ընդհանուր էլեկտրատեխնիկա և չափագիտություն, Համակարգիչների կիրառում',
+        en: 'General Electrical Engineering and Metrology, Computer Applications'
+      }
+    },
+    {
+      id: 7,
+      name: { 
+        am: 'Խուրշուդյան Արմեն', 
+        en: 'Khurshudyan Armen' 
+      },
+      position: { 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
+      },
+      degree: { 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
+      },
+      email: 'a.khurshudyan@gsu.am',
+      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
+      bio: {
+        am: 'Մասնագիտանում է ինֆորմատիկայի և ծրագրավորման ոլորտում:',
+        en: 'Specializes in informatics and programming.'
+      },
+      specialization: {
+        am: 'Ինֆորմատիկա, Ծրագրավորման հիմունքներ, Համակարգային ծրագրավորում',
+        en: 'Informatics, Programming Fundamentals, System Programming'
+      }
+    },
+    {
+      id: 8,
+      name: { 
+        am: 'Հակոբյան Մամիկոն', 
+        en: 'Hakobyan Mamikon' 
+      },
+      position: { 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
+      },
+      degree: { 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
+      },
+      email: 'm.hakobyan@gsu.am',
+      image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
+      bio: {
+        am: 'Մասնագիտանում է համակարգչային սխեմաների և միկրոպրոցեսորային համակարգերի ոլորտում:',
+        en: 'Specializes in computer circuits and microprocessor systems.'
+      },
+      specialization: {
+        am: 'Համակարգչային մասնագիտացված սխեմաներ, Միկրոպրոցեսորային համակարգեր',
+        en: 'Computer Specialized Circuits, Microprocessor Systems'
+      }
+    },
+    {
+      id: 9,
+      name: { 
+        am: 'Հովհաննիսյան Մարգար', 
+        en: 'Hovhannisyan Margar' 
+      },
+      position: { 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
+      },
+      degree: { 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
+      },
+      email: 'm.hovhannisyan@gsu.am',
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg',
+      bio: {
+        am: 'Մասնագիտանում է ցանցային համակարգերի և անվտանգության ոլորտում:',
+        en: 'Specializes in network systems and security.'
+      },
+      specialization: {
+        am: 'Հաշվողական համակարգերի և ցանցեր սերվերներ, Ցանցային համակարգերի պաշտպանություն և անվտանգություն',
+        en: 'Computing Systems and Network Servers, Network Systems Protection and Security'
+      }
+    },
+    {
+      id: 10,
+      name: { 
+        am: 'Դարբինյան Ալբերտ', 
+        en: 'Darbinyan Albert' 
+      },
+      position: { 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
+      },
+      degree: { 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
+      },
+      email: 'a.darbinyan@gsu.am',
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
+      bio: {
+        am: 'Մասնագիտանում է ավտոմատացված նախագծման և քվանտային ծրագրավորման ոլորտում:',
+        en: 'Specializes in automated design and quantum programming.'
+      },
+      specialization: {
+        am: 'Ավտոմատացված նախագծման համակարգեր, Քվանտային ծրագրավորման համակարգեր',
+        en: 'Automated Design Systems, Quantum Programming Systems'
+      }
+    },
+    {
+      id: 11,
+      name: { 
+        am: 'Նավոյան Ռուստամ', 
+        en: 'Navoyan Rustam' 
+      },
+      position: { 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
+      },
+      degree: { 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
+      },
+      email: 'r.navoyan@gsu.am',
+      image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg',
+      bio: {
+        am: 'Մասնագիտանում է առաջատար մոբայլ տեխնոլոգիաների ոլորտում:',
+        en: 'Specializes in advanced mobile technologies.'
+      },
+      specialization: {
+        am: 'Առաջատար մոբայլ տեխնոլոգիաներ',
+        en: 'Advanced Mobile Technologies'
+      }
+    },
+    {
+      id: 12,
+      name: { 
+        am: 'Դաշտոյան Հ․', 
+        en: 'Dashtoyan H.' 
+      },
+      position: { 
+        am: 'Դասախոս', 
+        en: 'Lecturer' 
+      },
+      degree: { 
+        am: 'Մագիստրոս', 
+        en: 'Master\'s Degree' 
+      },
+      email: 'h.dashtoyan@gsu.am',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+      bio: {
+        am: 'Մասնագիտանում է համակարգիչների սնուցման և ինտեգրալ սխեմաների ոլորտում:',
+        en: 'Specializes in computer power supply and integrated circuits.'
+      },
+      specialization: {
+        am: 'Համակարգիչների սնուցման երկրորդական աղբյուրների կազմակերպում, Բազային ինտեգրալ տրամաբանական սխեմաների նախագծում',
+        en: 'Organization of Secondary Power Sources for Computers, Design of Basic Integrated Logic Circuits'
       }
     }
   ];
