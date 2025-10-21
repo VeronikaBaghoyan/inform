@@ -22,8 +22,8 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
     {
       id: 1,
       title: { 
-        am: 'Ինֆորմատիկա և կիրառական մաթեմատիկա', 
-        en: 'Informatics and Applied Mathematics' 
+        am: 'Համակարգչային ճարտարագիտություն', 
+        en: 'Computer Engineering' 
       },
       level: { am: 'Բակալավրիատի առկա', en: 'Bachelor\'s Full-time' },
       duration: '4 ' + (language === 'am' ? 'տարի' : 'years'),
@@ -96,23 +96,23 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
       requirements: {
         am: [
           'Ընդհանուր միջնակարգ կրթություն',
-          'Մաթեմատիկա (նվազագույն 60%)',
-          'Ֆիզիկա (նվազագույն 50%)',
-          'Հայոց լեզու և գրականություն'
+          'Մաթեմատիկա',
+          'Ֆիզիկա',
+          
         ],
         en: [
           'General Secondary Education',
-          'Mathematics (minimum 60%)',
-          'Physics (minimum 50%)',
-          'Armenian Language and Literature'
+          'Mathematics ',
+          'Physics ',
+         
         ]
       }
     },
     {
       id: 2,
       title: { 
-        am: 'Ինֆորմատիկա և կիրառական մաթեմատիկա', 
-        en: 'Informatics and Applied Mathematics' 
+        am: 'Համակարգչային ճարտարագիտություն', 
+        en: 'Computer Engineering' 
       },
       level: { am: 'Բակալավրիատի հեռակա', en: 'Bachelor\'s Distance Learning' },
       duration: '5 ' + (language === 'am' ? 'տարի' : 'years'),
@@ -185,23 +185,22 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
       requirements: {
         am: [
           'Ընդհանուր միջնակարգ կրթություն',
-          'Մաթեմատիկա (նվազագույն 60%)',
-          'Ֆիզիկա (նվազագույն 50%)',
-          'Հայոց լեզու և գրականություն'
+          'Մաթեմատիկա',
+          'Ֆիզիկա',
         ],
         en: [
           'General Secondary Education',
-          'Mathematics (minimum 60%)',
-          'Physics (minimum 50%)',
-          'Armenian Language and Literature'
+          'Mathematics',
+          'Physics',
+         
         ]
       }
     },
     {
       id: 3,
       title: { 
-        am: 'Ինֆորմատիկա և կիրառական մաթեմատիկա', 
-        en: 'Informatics and Applied Mathematics' 
+        am: 'Համակարգչային ճարտարագիտություն', 
+        en: 'Computer Engineering' 
       },
       level: { am: 'Մագիստրատուրա', en: 'Master\'s Degree' },
       duration: '2 ' + (language === 'am' ? 'տարի' : 'years'),
@@ -255,16 +254,12 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
       },
       requirements: {
         am: [
-          'Բակալավրի կոչում համապատասխան ոլորտում',
-          'GPA առնվազն 3.0',
-          'Մտահոգությունների հարցազրույց',
-          'Անգլերեն լեզվի իմացություն'
+          'Բակալավրի կոչում',
+          
         ],
         en: [
-          'Bachelor\'s degree in relevant field',
-          'Minimum GPA of 3.0',
-          'Admission interview',
-          'English language proficiency'
+          'Bachelor\'s degree',
+         '
         ]
       }
     }
@@ -383,8 +378,8 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
                 </h3>
                 <p className="text-gray-600">
                   {language === 'am' 
-                    ? 'Հունիս - Օգոստոս 2024'
-                    : 'June - August 2024'}
+                    ? 'Հունիս - Օգոստոս 2025'
+                    : 'June - August 2025}
                 </p>
               </div>
               
