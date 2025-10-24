@@ -58,46 +58,13 @@ export default function StudentsPage({ language }: StudentsPageProps) {
     {
       id: 1,
       title: { am: 'Էլեկտրոնային գրադարան', en: 'Digital Library' },
-      description: { 
+      description: {
         am: 'Մասնագիտական գրականության և մենագրություների հավաքածու',
         en: 'Collection of professional literature and monographs'
       },
       url: 'https://library.gsu.am',
       category: 'link',
       icon: BookOpen
-    },
-    {
-      id: 2,
-      title: { am: 'Ուսանողական պորտալ', en: 'Student Portal' },
-      description: { 
-        am: 'Գնահատականներ, ժամանակացույց և անձնական տվյալներ',
-        en: 'Grades, schedule, and personal information'
-      },
-      url: 'https://portal.gsu.am',
-      category: 'link',
-      icon: Users
-    },
-    {
-      id: 3,
-      title: { am: 'Պարապմունքների ցուցակ', en: 'Class Schedule' },
-      description: { 
-        am: 'Ընթացիկ ժամանակացույց և լսարանների բաշխում',
-        en: 'Current schedule and classroom assignments'
-      },
-      url: 'https://schedule.gsu.am',
-      category: 'link',
-      icon: Calendar
-    },
-    {
-      id: 4,
-      title: { am: 'Microsoft Office 365', en: 'Microsoft Office 365' },
-      description: { 
-        am: 'Ուսանողների համար անվճար Office 365 փաթեթ',
-        en: 'Free Office 365 package for students'
-      },
-      url: 'https://office365.gsu.am',
-      category: 'software',
-      icon: Laptop
     }
   ];
 
@@ -181,7 +148,7 @@ export default function StudentsPage({ language }: StudentsPageProps) {
 
         {/* Quick Stats */}
         <div className="mb-16 bg-gradient-to-r from-blue-800 to-blue-900 text-white rounded-2xl p-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div>
               <Users className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
               <div className="text-3xl font-bold">250+</div>
@@ -191,11 +158,6 @@ export default function StudentsPage({ language }: StudentsPageProps) {
               <BookOpen className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
               <div className="text-3xl font-bold">40+</div>
               <div className="text-blue-200">{language === 'am' ? 'Առարկաներ' : 'Courses'}</div>
-            </div>
-            <div>
-              <Award className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold">85%</div>
-              <div className="text-blue-200">{language === 'am' ? 'Աշխատանքի տոկոս' : 'Employment Rate'}</div>
             </div>
             <div>
               <Calendar className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
@@ -302,15 +264,44 @@ export default function StudentsPage({ language }: StudentsPageProps) {
                     <p className="text-gray-600 mb-4">
                       {resource.description[language]}
                     </p>
-                    <button className={`w-full py-2 px-4 rounded-lg font-medium transition-colors ${
-                      resource.category === 'link' ? 'bg-green-600 hover:bg-green-700 text-white' :
-                      resource.category === 'software' ? 'bg-purple-600 hover:bg-purple-700 text-white' :
-                      'bg-blue-600 hover:bg-blue-700 text-white'
-                    }`}>
+                    <a
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`block w-full py-2 px-4 rounded-lg font-medium transition-colors text-center ${
+                        resource.category === 'link' ? 'bg-green-600 hover:bg-green-700 text-white' :
+                        resource.category === 'software' ? 'bg-purple-600 hover:bg-purple-700 text-white' :
+                        'bg-blue-600 hover:bg-blue-700 text-white'
+                      }`}>
                       {language === 'am' ? 'Անցնել' : 'Access'}
-                    </button>
+                    </a>
                   </div>
                 ))}
+                <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all transform hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 rounded-lg mr-4 bg-blue-100">
+                      <Laptop className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {language === 'am' ? 'Ուսումնական հարթակ' : 'Learning Platform'}
+                      </h3>
+                    </div>
+                    <ExternalLink className="h-4 w-4 text-gray-400" />
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    {language === 'am'
+                      ? 'Առցանց դասընթացներ և ուսումնական նյութեր'
+                      : 'Online courses and learning materials'}
+                  </p>
+                  <a
+                    href="http://learn.gsu.am/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-2 px-4 rounded-lg font-medium transition-colors text-center bg-blue-600 hover:bg-blue-700 text-white">
+                    {language === 'am' ? 'Անցնել' : 'Access'}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -394,9 +385,11 @@ export default function StudentsPage({ language }: StudentsPageProps) {
               : 'Our team is always ready to help you with academic and administrative matters.'}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-yellow-500 hover:bg-yellow-400 text-blue-800 px-6 py-3 rounded-lg font-bold transition-colors">
+            <a
+              href="/contact"
+              className="bg-yellow-500 hover:bg-yellow-400 text-blue-800 px-6 py-3 rounded-lg font-bold transition-colors inline-block">
               {language === 'am' ? 'Կապվել մեզ հետ' : 'Contact Us'}
-            </button>
+            </a>
             <button className="border-2 border-white text-white hover:bg-white hover:text-blue-800 px-6 py-3 rounded-lg font-bold transition-colors">
               {language === 'am' ? 'FAQ' : 'FAQ'}
             </button>
