@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { translations } from '../utils/translations';
 
 interface HomePageProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
 }
 
 export default function HomePage({ language }: HomePageProps) {

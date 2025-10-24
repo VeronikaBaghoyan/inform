@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Clock, Send, CheckCircle, AlertCircle } from 'luci
 import { translations } from '../utils/translations';
 
 interface ContactPageProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
 }
 
 export default function ContactPage({ language }: ContactPageProps) {
@@ -69,25 +69,18 @@ export default function ContactPage({ language }: ContactPageProps) {
 
   const staffContacts = [
     {
-      name: { am: 'Դր. Արամ Գալստյան', en: 'Dr. Aram Galstyan' },
+      name: { am: 'Ավետիսյան Վարազդատ', en: 'Avetisyan Varazdat' },
       position: { am: 'Ամբիոնի վարիչ', en: 'Department Head' },
-      email: 'a.galstyan@gsu.am',
-      phone: '+374 264 2-24-13',
-      office: '201'
+      email: 'avetisyanvarazdat@gmail.com',
+      phone: '+374777701656',
+      office: '316'
     },
     {
-      name: { am: 'Անի Մարտիրոսյան', en: 'Ani Martirosyan' },
-      position: { am: 'Ավագ դասախոս', en: 'Senior Lecturer' },
-      email: 'a.martirosyan@gsu.am',
-      phone: '+374 264 2-25-14',
-      office: '203'
-    },
-    {
-      name: { am: 'Մանե Հակոբյան', en: 'Mane Hakobyan' },
-      position: { am: 'Քարտուղար', en: 'Secretary' },
-      email: 'secretary@gsu.am',
-      phone: '+374 264 2-24-15',
-      office: '200'
+      name: { am: 'Ոսկանյան Անուշ', en: 'Voskanyan Anush' },
+      position: { am: 'Լաբորանտ', en: 'Laboratory Assistant' },
+      email: 'a.voskanyan@gsu.am',
+      phone: '+37493412468',
+      office: '316'
     }
   ];
 
@@ -260,7 +253,7 @@ export default function ContactPage({ language }: ContactPageProps) {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             {language === 'am' ? 'Հիմնական կոնտակտներ' : 'Key Contacts'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {staffContacts.map((staff, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
@@ -285,13 +278,27 @@ export default function ContactPage({ language }: ContactPageProps) {
                     <span>{language === 'am' ? 'Սենյակ' : 'Office'} {staff.office}</span>
                   </div>
                 </div>
-                <div className="text-gray-700">
-                  <div>+37460461250</div>
-                  <div>+37477701656</div>
-                </div>
-                <span className="text-gray-700">info@gsu.am</span>
               </div>
             ))}
+          </div>
+          <div className="mt-8 text-center bg-blue-50 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              {language === 'am' ? 'Ընդհանուր տեղեկատվություն' : 'General Information'}
+            </h3>
+            <div className="space-y-2 text-gray-700">
+              <div className="flex items-center justify-center">
+                <Phone className="h-4 w-4 mr-2" />
+                <span>+37460461250</span>
+              </div>
+              <div className="flex items-center justify-center">
+                <Phone className="h-4 w-4 mr-2" />
+                <span>+37477701656</span>
+              </div>
+              <div className="flex items-center justify-center">
+                <Mail className="h-4 w-4 mr-2" />
+                <a href="mailto:info@gsu.am" className="hover:text-blue-600 transition-colors">info@gsu.am</a>
+              </div>
+            </div>
           </div>
         </div>
 

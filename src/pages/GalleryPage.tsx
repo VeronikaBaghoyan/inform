@@ -3,7 +3,7 @@ import { Play, Image, Calendar, Users, Award, Building, X } from 'lucide-react';
 import { translations } from '../utils/translations';
 
 interface GalleryPageProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
 }
 
 interface MediaItem {

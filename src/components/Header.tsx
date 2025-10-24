@@ -4,8 +4,8 @@ import { Menu, X, Search, Settings, GraduationCap } from 'lucide-react';
 import { translations } from '../utils/translations';
 
 interface HeaderProps {
-  language: 'am' | 'en';
-  setLanguage: (lang: 'am' | 'en') => void;
+  language: 'am' | 'en' | 'ru';
+  setLanguage: (lang: 'am' | 'en' | 'ru') => void;
   setShowAdmin: (show: boolean) => void;
 }
 
@@ -32,19 +32,19 @@ export default function Header({ language, setLanguage, setShowAdmin }: HeaderPr
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center space-x-3">
               <GraduationCap className="h-10 w-10 text-blue-800" />
               <div>
                 <h1 className="text-xl font-bold text-blue-800 leading-tight">
                   {language === 'am' ? 'Գավառի պետական համալսարան' : 'Gavar State University'}
                 </h1>
                 <p className="text-sm text-gray-600">
-                  {language === 'am' 
+                  {language === 'am'
                     ? 'Ինֆորմատիկայի և ֆիզիկամաթեմատիկական գիտությունների ամբիոն'
                     : 'Department of Informatics and Physical-Mathematical Sciences'}
                 </p>
               </div>
-            </div>
+            </Link>
           </div>
 
           <div className="hidden lg:flex items-center space-x-6">
@@ -70,6 +70,12 @@ export default function Header({ language, setLanguage, setShowAdmin }: HeaderPr
                 className={`px-2 py-1 text-sm rounded ${language === 'en' ? 'bg-blue-800 text-white' : 'text-gray-600 hover:text-blue-800'}`}
               >
                 ENG
+              </button>
+              <button
+                onClick={() => setLanguage('ru')}
+                className={`px-2 py-1 text-sm rounded ${language === 'ru' ? 'bg-blue-800 text-white' : 'text-gray-600 hover:text-blue-800'}`}
+              >
+                РУС
               </button>
             </div>
             <button
@@ -134,6 +140,12 @@ export default function Header({ language, setLanguage, setShowAdmin }: HeaderPr
                 className={`px-3 py-1 text-sm rounded ${language === 'en' ? 'bg-blue-800 text-white' : 'text-gray-600 hover:text-blue-800'}`}
               >
                 ENG
+              </button>
+              <button
+                onClick={() => setLanguage('ru')}
+                className={`px-3 py-1 text-sm rounded ${language === 'ru' ? 'bg-blue-800 text-white' : 'text-gray-600 hover:text-blue-800'}`}
+              >
+                РУС
               </button>
               <button
                 onClick={() => setShowAdmin(true)}

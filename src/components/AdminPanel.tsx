@@ -3,7 +3,7 @@ import { X, Plus, CreditCard as Edit, Trash2, Save, Upload, Image, FileText, Use
 import { translations } from '../utils/translations';
 
 interface AdminPanelProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
   onClose: () => void;
 }
 

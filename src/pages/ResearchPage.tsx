@@ -2,7 +2,7 @@ import { BookOpen, Users, Calendar, Award, ExternalLink, FileText, Beaker } from
 import { translations } from '../utils/translations';
 
 interface ResearchPageProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
 }
 
 interface Publication {

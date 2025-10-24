@@ -2,7 +2,7 @@ import { BookOpen, Clock, Award, Users, CheckCircle, Calendar } from 'lucide-rea
 import { translations } from '../utils/translations';
 
 interface ProgramsPageProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
 }
 
 interface Program {

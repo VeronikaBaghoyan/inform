@@ -2,7 +2,7 @@ import { Mail, Phone, User, GraduationCap, Award } from 'lucide-react';
 import { translations } from '../utils/translations';
 
 interface StaffPageProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
 }
 
 interface StaffMember {

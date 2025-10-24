@@ -14,7 +14,7 @@ import ContactPage from './pages/ContactPage';
 import AdminPanel from './components/AdminPanel';
 
 function App() {
-  const [language, setLanguage] = useState<'am' | 'en'>('am');
+  const [language, setLanguage] = useState<'am' | 'en' | 'ru'>('am');
   const [showAdmin, setShowAdmin] = useState(false);
 
   return (

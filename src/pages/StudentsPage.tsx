@@ -2,7 +2,7 @@ import { BookOpen, Calendar, Download, ExternalLink, Users, Award, FileText, Lap
 import { translations } from '../utils/translations';
 
 interface StudentsPageProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
 }
 
 interface Resource {

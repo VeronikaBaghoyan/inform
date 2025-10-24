@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { translations } from '../utils/translations';
 
 interface NewsPageProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
 }
 
 interface NewsItem {

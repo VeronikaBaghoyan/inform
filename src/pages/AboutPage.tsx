@@ -2,7 +2,7 @@ import { History, Target, Users, Building } from 'lucide-react';
 import { translations } from '../utils/translations';
 
 interface AboutPageProps {
-  language: 'am' | 'en';
+  language: 'am' | 'en' | 'ru';
 }
 
 export default function AboutPage({ language }: AboutPageProps) {
