@@ -97,13 +97,13 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
         am: [
           'Ընդհանուր միջնակարգ կրթություն',
           'Մաթեմատիկա',
-          'Ֆիզիկա',
+          'Ֆիզիկա'
           
         ],
         en: [
           'General Secondary Education',
           'Mathematics ',
-          'Physics ',
+          'Physics '
          
         ]
       }
@@ -186,12 +186,12 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
         am: [
           'Ընդհանուր միջնակարգ կրթություն',
           'Մաթեմատիկա',
-          'Ֆիզիկա',
+          'Ֆիզիկա'
         ],
         en: [
           'General Secondary Education',
           'Mathematics',
-          'Physics',
+          'Physics'
          
         ]
       }
@@ -254,11 +254,12 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
       },
       requirements: {
         am: [
-          'Բակալավրի կոչում',
+          'Բակալավրի կոչում'
           
         ],
         en: [
           'Bachelor\'s degree'
+         
         ]
       }
     }
@@ -376,7 +377,7 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
                   {language === 'am' ? 'Ընդունելություն' : 'Admission'}
                 </h3>
                 <p className="text-gray-600">
-                  {language === 'am'
+                  {language === 'am' 
                     ? 'Հունիս - Օգոստոս 2025'
                     : 'June - August 2025'}
                 </p>
