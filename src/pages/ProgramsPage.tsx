@@ -258,8 +258,7 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
           
         ],
         en: [
-          'Bachelor\'s degree',
-         '
+          'Bachelor\'s degree'
         ]
       }
     }
@@ -377,9 +376,9 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
                   {language === 'am' ? 'Ընդունելություն' : 'Admission'}
                 </h3>
                 <p className="text-gray-600">
-                  {language === 'am' 
+                  {language === 'am'
                     ? 'Հունիս - Օգոստոս 2025'
-                    : 'June - August 2025}
+                    : 'June - August 2025'}
                 </p>
               </div>
               
