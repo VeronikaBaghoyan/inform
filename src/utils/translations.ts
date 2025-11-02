@@ -142,7 +142,7 @@ export const translations = {
       phone: 'Հեռախոս',
       email: 'Էլեկտրոնային փոստ',
       workingHours: 'Աշխատանքային ժամեր',
-      workingTime: 'Երկուշաբթի - Ուրբաթ: 9:00 - 18:00',
+      workingTime: 'Չորեքշաբթի - Կիրակի: 9:00 - 18:00',
       form: {
         title: 'Գրել մեզ',
         name: 'Անուն',
@@ -317,7 +317,7 @@ export const translations = {
       phone: 'Phone',
       email: 'Email',
       workingHours: 'Working Hours',
-      workingTime: 'Monday - Friday: 9:00 - 18:00',
+      workingTime: 'Wednesday - Sunday: 9:00 - 18:00',
       form: {
         title: 'Write to Us',
         name: 'Name',
@@ -462,7 +462,7 @@ export const translations = {
       videos: 'Видео',
       events: 'События',
       academic: 'Академическая жизнь',
-      campus: 'Кампус',
+      campus: 'Кафедра',
     },
     students: {
       title: 'Студентам',
@@ -492,7 +492,7 @@ export const translations = {
       phone: 'Телефон',
       email: 'Электронная почта',
       workingHours: 'Рабочие часы',
-      workingTime: 'Понедельник - Пятница: 9:00 - 18:00',
+      workingTime: 'Среда - Воскресенье: 9:00 - 18:00',
       form: {
         title: 'Напишите нам',
         name: 'Имя',
