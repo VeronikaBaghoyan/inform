@@ -192,7 +192,6 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
           'General Secondary Education',
           'Mathematics',
           'Physics'
-         
         ]
       }
     },
