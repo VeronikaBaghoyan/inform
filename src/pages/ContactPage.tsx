@@ -39,10 +39,10 @@ export default function ContactPage({ language }: ContactPageProps) {
       icon: MapPin,
       title: t.contact.address,
       content: language === 'am'
-        ? 'Ազատության փողոց, Գավառ, Հայաստան'
+        ? 'ք․ Գավառ, Հրանտ Հակոբյան 1'
         : language === 'ru'
-        ? 'ул. Азатутян, Гавар, Армения'
-        : 'Azatutyan Street, Gavar, Armenia',
+        ? 'г. Гавар, ул. Гранта Акопяна, 1'
+        : 'Hrant Hakobyan 1 Street, Gavar',
       color: 'text-red-600',
       bgColor: 'bg-red-100'
     },
