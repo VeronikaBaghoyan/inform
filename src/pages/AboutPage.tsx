@@ -85,7 +85,7 @@ export default function AboutPage({ language }: AboutPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img
-                src="https://nuaca.am/wp-content/uploads/2017/03/info_a-300x225.jpg"
+                src="https://takshashilauniv.ac.in/wp-content/uploads/2023/10/computer-engineering.jpg"
                 alt="Department Structure"
                 className="rounded-lg shadow-lg"
               />
