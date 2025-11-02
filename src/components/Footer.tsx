@@ -19,8 +19,10 @@ export default function Footer({ language }: FooterProps) {
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-yellow-400 flex-shrink-0" />
                 <p className="text-sm">
-                  {language === 'am' 
-                    ? 'Ազատության փողոց, Գավառ, Հայաստան' 
+                  {language === 'am'
+                    ? 'Ազատության փողոց, Գավառ, Հայաստան'
+                    : language === 'ru'
+                    ? 'ул. Азатутян, Гавар, Армения'
                     : 'Azatutyan Street, Gavar, Armenia'}
                 </p>
               </div>
@@ -71,11 +73,11 @@ export default function Footer({ language }: FooterProps) {
               <div className="flex">
                 <input
                   type="email"
-                  placeholder={language === 'am' ? 'Ձեր էլ․ փոստը' : 'Your email'}
+                  placeholder={language === 'am' ? 'Ձեր էլ․ փոստը' : language === 'ru' ? 'Ваш email' : 'Your email'}
                   className="flex-1 px-3 py-2 text-gray-800 rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
                 <button className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-r-md transition-colors font-medium text-blue-800">
-                  {language === 'am' ? 'Բաժանորդագրվել' : 'Subscribe'}
+                  {language === 'am' ? 'Բաժանորդագրվել' : language === 'ru' ? 'Подписаться' : 'Subscribe'}
                 </button>
               </div>
             </div>
@@ -84,7 +86,7 @@ export default function Footer({ language }: FooterProps) {
 
         <div className="border-t border-blue-700 mt-8 pt-8 text-center">
           <p className="text-sm text-blue-200">
-            © 2025 {language === 'am' ? 'Գավառի պետական համալսարան' : 'Gavar State University'}. {language === 'am' ? 'Բոլոր իրավունքները պաշտպանված են։' : 'All rights reserved.'}
+            © 2025 {language === 'am' ? 'Գավառի պետական համալսարան' : language === 'ru' ? 'Гаварский государственный университет' : 'Gavar State University'}. {language === 'am' ? 'Բոլոր իրավունքները պաշտպանված են։' : language === 'ru' ? 'Все права защищены.' : 'All rights reserved.'}
           </p>
         </div>
       </div>

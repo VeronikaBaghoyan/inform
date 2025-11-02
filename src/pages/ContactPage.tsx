@@ -38,8 +38,10 @@ export default function ContactPage({ language }: ContactPageProps) {
     {
       icon: MapPin,
       title: t.contact.address,
-      content: language === 'am' 
+      content: language === 'am'
         ? 'Ազատության փողոց, Գավառ, Հայաստան'
+        : language === 'ru'
+        ? 'ул. Азатутян, Гавар, Армения'
         : 'Azatutyan Street, Gavar, Armenia',
       color: 'text-red-600',
       bgColor: 'bg-red-100'
@@ -69,15 +71,15 @@ export default function ContactPage({ language }: ContactPageProps) {
 
   const staffContacts = [
     {
-      name: { am: 'Ավետիսյան Վարազդատ', en: 'Avetisyan Varazdat' },
-      position: { am: 'Ամբիոնի վարիչ', en: 'Department Head' },
+      name: { am: 'Ավետիսյան Վարազդատ', en: 'Avetisyan Varazdat', ru: 'Аветисян Варазdat' },
+      position: { am: 'Ամբիոնի վարիչ', en: 'Department Head', ru: 'Заведующий кафедрой' },
       email: 'avetisyanvarazdat@gmail.com',
       phone: '+374777701656',
       office: '316'
     },
     {
-      name: { am: 'Ոսկանյան Անուշ', en: 'Voskanyan Anush' },
-      position: { am: 'Լաբորանտ', en: 'Laboratory Assistant' },
+      name: { am: 'Ոսկանյան Անուշ', en: 'Voskanyan Anush', ru: 'Воскабан Ануш' },
+      position: { am: 'Լաբորանտ', en: 'Laboratory Assistant', ru: 'Лаборант' },
       email: 'a.voskanyan@gsu.am',
       phone: '+37493412468',
       office: '316'
@@ -93,8 +95,10 @@ export default function ContactPage({ language }: ContactPageProps) {
           </h1>
           <div className="w-24 h-1 bg-blue-800 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {language === 'am' 
+            {language === 'am'
               ? 'Կապվեք մեզ հետ ցանկացած հարցում կամ առաջարկությունների համար: Մենք միշտ պատրաստ ենք օգնել:'
+              : language === 'ru'
+              ? 'Свяжитесь с нами по любым вопросам или предложениям. Мы всегда готовы помочь.'
               : 'Contact us for any questions or suggestions. We are always ready to help.'}
           </p>
         </div>
@@ -103,7 +107,7 @@ export default function ContactPage({ language }: ContactPageProps) {
           {/* Contact Information */}
           <div className="lg:col-span-1">
             <h2 className="text-2xl font-bold text-gray-900 mb-8">
-              {language === 'am' ? 'Կոնտակտային տվյալներ' : 'Contact Information'}
+              {language === 'am' ? 'Կոնտակտային տվյալներ' : language === 'ru' ? 'Контактная информация' : 'Contact Information'}
             </h2>
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
@@ -275,7 +279,7 @@ export default function ContactPage({ language }: ContactPageProps) {
                   </div>
                   <div className="flex items-center">
                     <MapPin className="h-4 w-4 mr-2" />
-                    <span>{language === 'am' ? 'Սենյակ' : 'Office'} {staff.office}</span>
+                    <span>{language === 'am' ? 'Սենյակ' : language === 'ru' ? 'Кабинет' : 'Office'} {staff.office}</span>
                   </div>
                 </div>
               </div>
@@ -283,7 +287,7 @@ export default function ContactPage({ language }: ContactPageProps) {
           </div>
           <div className="mt-8 text-center bg-blue-50 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              {language === 'am' ? 'Ընդհանուր տեղեկատվություն' : 'General Information'}
+              {language === 'am' ? 'Ընդհանուր տեղեկատվություն' : language === 'ru' ? 'Общая информация' : 'General Information'}
             </h3>
             <div className="space-y-2 text-gray-700">
               <div className="flex items-center justify-center">
@@ -305,54 +309,70 @@ export default function ContactPage({ language }: ContactPageProps) {
         {/* FAQ Section */}
         <div className="bg-gray-50 rounded-2xl p-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            {language === 'am' ? 'Հաճախ տրվող հարցեր' : 'Frequently Asked Questions'}
+            {language === 'am' ? 'Հաճախ տրվող հարցեր' : language === 'ru' ? 'Часто задаваемые вопросы' : 'Frequently Asked Questions'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Ինչպե՞ս կարող եմ ընդունվել ամբիոն:'
+                  : language === 'ru'
+                  ? 'Как я могу поступить в кафедру?'
                   : 'How can I apply to the department?'}
               </h3>
               <p className="text-gray-600 mb-6">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Ընդունելության գործընթացի մասին տեղեկությունները կարող եք գտնել մեր կայքի "Ծրագրեր" բաժնում:'
+                  : language === 'ru'
+                  ? 'Информация о процессе поступления находится в разделе "Программы" нашего сайта.'
                   : 'Information about the admission process can be found in the "Programs" section of our website.'}
               </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Ունե՞ք գիշերային կամ հեռակա ուսուցում:'
+                  : language === 'ru'
+                  ? 'Предоставляете ли вы вечернее или дистанционное обучение?'
                   : 'Do you have evening or distance learning?'}
               </h3>
               <p className="text-gray-600 mb-6">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Այս պահին մենք առաջարկում ենք միայն առկա ուսուցում, սակայն աշխատում ենք հեռակա ուսուցման ծրագրերի վրա:'
+                  : language === 'ru'
+                  ? 'В настоящее время мы предлагаем только очную форму обучения, но работаем над программами дистанционного обучения.'
                   : 'Currently, we offer only full-time education, but we are working on distance learning programs.'}
               </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Կարո՞ղ եմ փոխանցվել այլ բուհից:'
+                  : language === 'ru'
+                  ? 'Могу ли я перейти из другого университета?'
                   : 'Can I transfer from another university?'}
               </h3>
               <p className="text-gray-600 mb-6">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Այո, փոխանցման հնարավորություններն ուսումնասիրվում են անհատական կարգով: Կապվեք ամբիոնի քարտուղարի հետ:'
+                  : language === 'ru'
+                  ? 'Да, возможности перевода рассматриваются в индивидуальном порядке. Свяжитесь с секретарем кафедры.'
                   : 'Yes, transfer opportunities are considered on an individual basis. Contact the department secretary.'}
               </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Արդյո՞ք կան աշխատանքի հնարավորություններ:'
+                  : language === 'ru'
+                  ? 'Есть ли возможности трудоустройства?'
                   : 'Are there job opportunities available?'}
               </h3>
               <p className="text-gray-600 mb-6">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Մեր ավարտականները աշխատում են տարբեր IT ընկերություններում և պետական կառույցներում:'
+                  : language === 'ru'
+                  ? 'Наши выпускники работают в различных IT-компаниях и государственных учреждениях.'
                   : 'Our graduates work in various IT companies and government institutions.'}
               </p>
             </div>

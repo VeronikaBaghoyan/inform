@@ -12,33 +12,45 @@ export default function HomePage({ language }: HomePageProps) {
   const newsItems = [
     {
       id: 1,
-      title: language === 'am' 
-        ? 'Նոր ուսումնական տարվա բացում' 
+      title: language === 'am'
+        ? 'Նոր ուսումնական տարվա բացում'
+        : language === 'ru'
+        ? 'Открытие нового учебного года'
         : 'New Academic Year Opening',
-      excerpt: language === 'am' 
-        ? 'Սեպտեմբերի 1-ին կգործի նոր ուսումնական տարվա բացման հանդեսը:' 
+      excerpt: language === 'am'
+        ? 'Սեպտեմբերի 1-ին կգործի նոր ուսումնական տարվա բացման հանդեսը:'
+        : language === 'ru'
+        ? 'Церемония открытия нового учебного года состоится 1 сентября.'
         : 'The opening ceremony of the new academic year will take place on September 1st.',
       date: '2024-08-25',
       image: 'https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg',
     },
     {
       id: 2,
-      title: language === 'am' 
-        ? 'Գիտական կոնֆերանս' 
+      title: language === 'am'
+        ? 'Գիտական կոնֆերանս'
+        : language === 'ru'
+        ? 'Научная конференция'
         : 'Scientific Conference',
-      excerpt: language === 'am' 
-        ? 'Հոկտեմբերի 15-ին կանցկացվի միջազգային գիտական կոնֆերանս:' 
+      excerpt: language === 'am'
+        ? 'Հոկտեմբերի 15-ին կանցկացվի միջազգային գիտական կոնֆերանս:'
+        : language === 'ru'
+        ? 'Международная научная конференция будет проведена 15 октября.'
         : 'International scientific conference will be held on October 15th.',
       date: '2024-08-20',
       image: 'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg',
     },
     {
       id: 3,
-      title: language === 'am' 
-        ? 'Նոր լաբորատորիայի բացում' 
+      title: language === 'am'
+        ? 'Նոր լաբորատորիայի բացում'
+        : language === 'ru'
+        ? 'Открытие новой лаборатории'
         : 'New Laboratory Opening',
-      excerpt: language === 'am' 
-        ? 'Ամբիոնում բացվել է նոր ժամանակակից համակարգչային լաբորատորիա:' 
+      excerpt: language === 'am'
+        ? 'Ամբիոնում բացվել է նոր ժամանակակից համակարգչային լաբորատորիա:'
+        : language === 'ru'
+        ? 'В кафедре открыта новая современная компьютерная лаборатория.'
         : 'A new modern computer laboratory has been opened at the department.',
       date: '2024-08-15',
       image: 'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg',

@@ -29,8 +29,10 @@ export default function AboutPage({ language }: AboutPageProps) {
                 </h2>
               </div>
               <p className="text-gray-600 text-lg leading-relaxed">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Ինֆորմատիկայի և ֆիզիկամաթեմատիկական գիտությունների ամբիոնը հիմնադրվել է 1993 թվականին Գավառի պետական համալսարանի կազմում: Ամբիոնը վերապատրաստել և թողարկել է հազարավոր բարձրորակ մասնագետներ, ովքեր աշխատում են տարբեր ոլորտներում ինչպես Հայաստանում, այնպես էլ արտերկրում:'
+                  : language === 'ru'
+                  ? 'Кафедра информатики и физико-математических наук была основана в 1993 году в составе Гаварского государственного университета. Кафедра подготовила и выпустила тысячи высококвалифицированных специалистов, которые работают в различных областях как в Армении, так и за рубежом.'
                   : 'The Department of Informatics and Physical-Mathematical Sciences was established in 1993 within Gavar State University. The department has trained and graduated thousands of high-quality specialists who work in various fields both in Armenia and abroad.'}
               </p>
             </div>
@@ -54,8 +56,10 @@ export default function AboutPage({ language }: AboutPageProps) {
             </h2>
           </div>
           <p className="text-gray-700 text-lg leading-relaxed">
-            {language === 'am' 
+            {language === 'am'
               ? 'Մեր առաքելությունն է ապահովել բարձրորակ կրթություն ինֆորմատիկայի ոլորում, մշակել նորարարական մեթոդներ և կատարել գիտական հետազոտություններ, որոնք նպաստում են գիտելիքի առաջխաղացմանը:'
+              : language === 'ru'
+              ? 'Наша миссия - обеспечить качественное образование в области информатики, разработать инновационные методы и проводить научные исследования, способствующие развитию знаний.'
               : 'Our mission is to provide high-quality education in the field of informatics, develop innovative methods, and conduct scientific research that contributes to the advancement of knowledge.'}
           </p>
         </div>
@@ -99,24 +103,28 @@ export default function AboutPage({ language }: AboutPageProps) {
                 </h2>
               </div>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                {language === 'am' 
+                {language === 'am'
                   ? 'Ամբիոնը թողարկում է համակարգչային ճարտարագիտություն կրթական ծրագիրը, շնորհվող որակավորումը՝ «Ինֆորմատիկայի բակալավր», «Ինֆորմատիկայի մագիստրոս»:'
+                  : language === 'ru'
+                  ? 'Кафедра предлагает образовательную программу по компьютерной инженерии, присуждаемые квалификации - "Бакалавр информатики", "Магистр информатики".'
                   : 'The department offers a computer engineering educational program, with qualifications awarded as "Bachelor of Informatics" and "Master of Informatics".'}
               </p>
               <div className="space-y-4">
                 <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-800">
                   <h3 className="font-semibold text-blue-800 mb-2">
-                    {language === 'am' ? 'Համակարգչային ճարտարագիտություն' : 'Computer engineering'}
+                    {language === 'am' ? 'Համակարգչային ճարտարագիտություն' : language === 'ru' ? 'Компьютерная инженерия' : 'Computer engineering'}
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    {language === 'am' 
+                    {language === 'am'
                       ? 'Ծրագրավորման լեզուներ, վեբ տեխնոլոգիաներ, տվյալների բազաներ և այլն'
+                      : language === 'ru'
+                      ? 'Языки программирования, веб-технологии, базы данных и т.д'
                       : 'Programming languages, web technologies, databases etc'}
                   </p>
                 </div>
                 <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-600">
                   <h3 className="font-semibold text-green-600 mb-2">
-                    {language === 'am' ? 'Այլ կրթական ծրագրեր' : 'Other educational programs'}
+                    {language === 'am' ? 'Այլ կրթական ծրագրեր' : language === 'ru' ? 'Другие образовательные программы' : 'Other educational programs'}
                   </h3>
                  
                 </div>
@@ -132,13 +140,13 @@ export default function AboutPage({ language }: AboutPageProps) {
             <div>
               <div className="text-4xl font-bold mb-2">15+</div>
               <div className="text-blue-200">
-                {language === 'am' ? 'Դասախոսներ' : 'Faculty Members'}
+                {language === 'am' ? 'Դասախոսներ' : language === 'ru' ? 'Преподаватели' : 'Faculty Members'}
               </div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">3</div>
               <div className="text-blue-200">
-                {language === 'am' ? 'Կրթական ծրագրեր' : 'Programs'}
+                {language === 'am' ? 'Կրթական ծրագրեր' : language === 'ru' ? 'Программы' : 'Programs'}
               </div>
             </div>
           </div>
