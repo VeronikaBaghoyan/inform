@@ -41,7 +41,7 @@ export default function Footer({ language }: FooterProps) {
           </div>
 
           <div>
-            <h1 className="text-lg font-semibold mb-4">{t.footer.quickLinks}</h1>
+            <h3 className="text-lg font-semibold mb-4">{t.footer.quickLinks}</h3>
             <div className="space-y-2">
               <Link to="/about" className="block text-sm hover:text-yellow-400 transition-colors">
                 {t.nav.about}
