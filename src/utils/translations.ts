@@ -157,7 +157,7 @@ export const translations = {
     search: 'Որոնում...',
     loading: 'Բեռնվում է...',
     footer: {
-      contact: 'Կոնտակտ',
+      contact: 'Կապ',
       quickLinks: 'Արագ հղումներ',
       followUs: 'Հետևեք մեզ',
       newsletter: 'Նորությունների բաժանորդագրում',
