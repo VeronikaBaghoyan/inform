@@ -20,10 +20,10 @@ export default function Footer({ language }: FooterProps) {
                 <MapPin className="h-5 w-5 text-yellow-400 flex-shrink-0" />
                 <p className="text-sm">
                   {language === 'am'
-                    ? 'Ազատության փողոց, Գավառ, Հայաստան'
+                    ? 'ք․ Գավառ, Հրանտ Հակոբյան 1'
                     : language === 'ru'
-                    ? 'ул. Азатутян, Гавар, Армения'
-                    : 'Azatutyan Street, Gavar, Armenia'}
+                    ? 'г. Гавар, ул. Гранта Акопяна, 1'
+                    : 'Hrant Hakobyan 1  Street, Gavar'}
                 </p>
               </div>
               <div className="flex items-center space-x-3">
