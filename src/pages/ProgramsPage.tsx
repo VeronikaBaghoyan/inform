@@ -284,10 +284,10 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
             <div key={program.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
               <div className="bg-gradient-to-r from-blue-800 to-blue-900 text-white p-8">
                 <div className="flex flex-wrap items-center justify-between mb-4">
-                  <h2 className="text-3xl font-bold">{program.title[language]}</h2>
+                  <h2 className="text-3xl font-bold">{program.title[language === 'ru' ? 'en' : language]}</h2>
                   <div className="flex items-center space-x-4">
                     <span className="bg-yellow-500 text-blue-800 px-4 py-2 rounded-full font-bold">
-                      {program.level[language]}
+                      {program.level[language === 'ru' ? 'en' : language]}
                     </span>
                   </div>
                 </div>
@@ -319,14 +319,14 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
                       {language === 'am' ? 'Ծրագրի մասին' : 'About Program'}
                     </h3>
                     <p className="text-gray-600 mb-6 leading-relaxed">
-                      {program.description[language]}
+                      {program.description[language === 'ru' ? 'en' : language]}
                     </p>
 
                     <h4 className="text-lg font-semibold text-gray-900 mb-3">
                       {language === 'am' ? 'Ընդունելության պահանջներ' : 'Admission Requirements'}
                     </h4>
                     <ul className="space-y-2">
-                      {program.requirements[language].map((req, index) => (
+                      {program.requirements[language === 'ru' ? 'en' : language].map((req, index) => (
                         <li key={index} className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                           <span className="text-gray-600">{req}</span>
@@ -342,7 +342,7 @@ export default function ProgramsPage({ language }: ProgramsPageProps) {
                         {language === 'am' ? 'Հիմնական առարկաներ' : 'Main Subjects'}
                       </h4>
                       <div className="grid grid-cols-1 gap-2 max-h-96 overflow-y-auto">
-                        {program.subjects[language].map((subject, index) => (
+                        {program.subjects[language === 'ru' ? 'en' : language].map((subject, index) => (
                           <div key={index} className="bg-blue-50 px-3 py-2 rounded-lg text-sm text-blue-800 font-medium">
                             {subject}
                           </div>
