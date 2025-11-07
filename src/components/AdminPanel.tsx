@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { X, Plus, CreditCard as Edit, Trash2, Save, Upload, Image, FileText, Users } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { X, Plus, CreditCard as Edit, Trash2, Save, Upload, Image, FileText, Users, Crown } from 'lucide-react';
 import { translations } from '../utils/translations';
+import { createClient } from '@supabase/supabase-js';
 
 interface AdminPanelProps {
   language: 'am' | 'en' | 'ru';
@@ -16,12 +17,104 @@ interface ContentItem {
   date?: string;
 }
 
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+interface DepartmentHead {
+  id: string;
+  name: string;
+  start_year?: number;
+  end_year?: number;
+  order: number;
+}
+
 export default function AdminPanel({ language, onClose }: AdminPanelProps) {
   const t = translations[language];
-  const [activeTab, setActiveTab] = useState<'news' | 'staff' | 'gallery'>('news');
+  const [activeTab, setActiveTab] = useState<'news' | 'staff' | 'gallery' | 'heads'>('news');
   const [isEditing, setIsEditing] = useState(false);
   const [editingItem, setEditingItem] = useState<ContentItem | null>(null);
+  const [departmentHeads, setDepartmentHeads] = useState<DepartmentHead[]>([]);
+  const [editingHead, setEditingHead] = useState<DepartmentHead | null>(null);
+  const [isEditingHead, setIsEditingHead] = useState(false);
+  const [loading, setLoading] = useState(false);
   
+  useEffect(() => {
+    if (activeTab === 'heads') {
+      loadDepartmentHeads();
+    }
+  }, [activeTab]);
+
+  const loadDepartmentHeads = async () => {
+    setLoading(true);
+    try {
+      const { data, error } = await supabase
+        .from('department_heads')
+        .select('*')
+        .order('order', { ascending: true });
+
+      if (error) throw error;
+      setDepartmentHeads(data || []);
+    } catch (error) {
+      console.error('Error loading department heads:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const saveHeadToDatabase = async (head: DepartmentHead) => {
+    try {
+      if (head.id && head.id !== 'new') {
+        const { error } = await supabase
+          .from('department_heads')
+          .update({
+            name: head.name,
+            start_year: head.start_year || null,
+            end_year: head.end_year || null,
+            order: head.order,
+          })
+          .eq('id', head.id);
+
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from('department_heads')
+          .insert([{
+            name: head.name,
+            start_year: head.start_year || null,
+            end_year: head.end_year || null,
+            order: head.order,
+          }]);
+
+        if (error) throw error;
+      }
+
+      await loadDepartmentHeads();
+      setIsEditingHead(false);
+      setEditingHead(null);
+    } catch (error) {
+      console.error('Error saving department head:', error);
+    }
+  };
+
+  const deleteHeadFromDatabase = async (id: string) => {
+    if (!confirm(language === 'am' ? 'Համոզվա՞ծ եք, որ ուզում եք ջնջել:' : 'Are you sure you want to delete?')) {
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('department_heads')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+      await loadDepartmentHeads();
+    } catch (error) {
+      console.error('Error deleting department head:', error);
+    }
+  };
+
   // Mock data for demonstration
   const [newsItems, setNewsItems] = useState<ContentItem[]>([
     {
@@ -143,10 +236,26 @@ export default function AdminPanel({ language, onClose }: AdminPanelProps) {
     setIsEditing(true);
   };
 
+  const handleAddNewHead = () => {
+    const maxOrder = departmentHeads.length > 0
+      ? Math.max(...departmentHeads.map(h => h.order)) + 1
+      : 1;
+
+    setEditingHead({
+      id: 'new',
+      name: '',
+      start_year: undefined,
+      end_year: undefined,
+      order: maxOrder,
+    });
+    setIsEditingHead(true);
+  };
+
   const tabs = [
     { id: 'news' as const, label: t.admin.news, icon: FileText },
     { id: 'staff' as const, label: t.admin.staff, icon: Users },
     { id: 'gallery' as const, label: t.admin.gallery, icon: Image },
+    { id: 'heads' as const, label: language === 'am' ? 'Վարիչներ' : 'Department Heads', icon: Crown },
   ];
 
   return (
@@ -193,7 +302,7 @@ export default function AdminPanel({ language, onClose }: AdminPanelProps) {
                   {tabs.find(tab => tab.id === activeTab)?.label}
                 </h3>
                 <button
-                  onClick={handleAddNew}
+                  onClick={() => activeTab === 'heads' ? handleAddNewHead() : handleAddNew()}
                   className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   <Plus className="h-4 w-4 mr-2" />
@@ -201,56 +310,190 @@ export default function AdminPanel({ language, onClose }: AdminPanelProps) {
                 </button>
               </div>
 
-              {/* Items List */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {getCurrentItems().map((item) => (
-                  <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                    {item.image && (
-                      <img
-                        src={item.image}
-                        alt={item.title[language]}
-                        className="w-full h-32 object-cover rounded-lg mb-4"
-                      />
-                    )}
-                    
-                    <h4 className="font-semibold text-gray-900 mb-2">
-                      {item.title[language]}
-                    </h4>
-                    
-                    {item.content && (
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                        {item.content[language]}
-                      </p>
-                    )}
-                    
-                    {item.date && (
-                      <p className="text-xs text-gray-500 mb-4">
-                        {item.date}
-                      </p>
-                    )}
-                    
-                    <div className="flex space-x-2">
-                      <button
-                        onClick={() => handleEdit(item)}
-                        className="flex items-center px-3 py-1 text-blue-600 hover:bg-blue-50 rounded transition-colors"
-                      >
-                        <Edit className="h-4 w-4 mr-1" />
-                        {t.admin.edit}
-                      </button>
-                      <button
-                        onClick={() => handleDelete(item.id)}
-                        className="flex items-center px-3 py-1 text-red-600 hover:bg-red-50 rounded transition-colors"
-                      >
-                        <Trash2 className="h-4 w-4 mr-1" />
-                        {t.admin.delete}
-                      </button>
+              {/* Department Heads Section */}
+              {activeTab === 'heads' && (
+                <div className="space-y-4">
+                  {loading ? (
+                    <div className="text-center text-gray-500">
+                      {language === 'am' ? 'Բեռնվում է...' : 'Loading...'}
                     </div>
+                  ) : (
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      {departmentHeads.map((head) => (
+                        <div key={head.id} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                          <div className="flex items-start justify-between mb-3">
+                            <div>
+                              <h4 className="font-semibold text-gray-900">{head.name}</h4>
+                              {head.start_year && (
+                                <p className="text-sm text-gray-600">
+                                  {head.start_year}{head.end_year ? ` - ${head.end_year}` : ''}
+                                </p>
+                              )}
+                            </div>
+                            <Crown className="h-5 w-5 text-yellow-600" />
+                          </div>
+
+                          <div className="flex space-x-2">
+                            <button
+                              onClick={() => {
+                                setEditingHead({ ...head });
+                                setIsEditingHead(true);
+                              }}
+                              className="flex items-center px-3 py-1 text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                            >
+                              <Edit className="h-4 w-4 mr-1" />
+                              {t.admin.edit}
+                            </button>
+                            <button
+                              onClick={() => deleteHeadFromDatabase(head.id)}
+                              className="flex items-center px-3 py-1 text-red-600 hover:bg-red-50 rounded transition-colors"
+                            >
+                              <Trash2 className="h-4 w-4 mr-1" />
+                              {t.admin.delete}
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {activeTab !== 'heads' && (
+                <>
+                  {/* Items List */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {getCurrentItems().map((item) => (
+                      <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                        {item.image && (
+                          <img
+                            src={item.image}
+                            alt={item.title[language]}
+                            className="w-full h-32 object-cover rounded-lg mb-4"
+                          />
+                        )}
+
+                        <h4 className="font-semibold text-gray-900 mb-2">
+                          {item.title[language]}
+                        </h4>
+
+                        {item.content && (
+                          <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                            {item.content[language]}
+                          </p>
+                        )}
+
+                        {item.date && (
+                          <p className="text-xs text-gray-500 mb-4">
+                            {item.date}
+                          </p>
+                        )}
+
+                        <div className="flex space-x-2">
+                          <button
+                            onClick={() => handleEdit(item)}
+                            className="flex items-center px-3 py-1 text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                          >
+                            <Edit className="h-4 w-4 mr-1" />
+                            {t.admin.edit}
+                          </button>
+                          <button
+                            onClick={() => handleDelete(item.id)}
+                            className="flex items-center px-3 py-1 text-red-600 hover:bg-red-50 rounded transition-colors"
+                          >
+                            <Trash2 className="h-4 w-4 mr-1" />
+                            {t.admin.delete}
+                          </button>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </>
+              )}
             </div>
           </div>
         </div>
+
+        {/* Department Head Edit Modal */}
+        {isEditingHead && editingHead && (
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-xl w-full max-w-md">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">
+                  {language === 'am' ? 'Խմբագրել վարիչ' : 'Edit Department Head'}
+                </h3>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      {language === 'am' ? 'Անուն' : 'Name'}
+                    </label>
+                    <input
+                      type="text"
+                      value={editingHead.name}
+                      onChange={(e) => setEditingHead({
+                        ...editingHead,
+                        name: e.target.value
+                      })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {language === 'am' ? 'Սկիզբ' : 'Start Year'}
+                      </label>
+                      <input
+                        type="number"
+                        value={editingHead.start_year || ''}
+                        onChange={(e) => setEditingHead({
+                          ...editingHead,
+                          start_year: e.target.value ? parseInt(e.target.value) : undefined
+                        })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {language === 'am' ? 'Վերջ' : 'End Year'}
+                      </label>
+                      <input
+                        type="number"
+                        value={editingHead.end_year || ''}
+                        onChange={(e) => setEditingHead({
+                          ...editingHead,
+                          end_year: e.target.value ? parseInt(e.target.value) : undefined
+                        })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex justify-end space-x-3 mt-6">
+                  <button
+                    onClick={() => {
+                      setIsEditingHead(false);
+                      setEditingHead(null);
+                    }}
+                    className="px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    {t.admin.cancel}
+                  </button>
+                  <button
+                    onClick={() => editingHead && saveHeadToDatabase(editingHead)}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center"
+                  >
+                    <Save className="h-4 w-4 mr-2" />
+                    {t.admin.save}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Edit Modal */}
         {isEditing && editingItem && (
