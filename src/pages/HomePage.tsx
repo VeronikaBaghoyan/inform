@@ -60,23 +60,27 @@ export default function HomePage({ language }: HomePageProps) {
   const quickLinks = [
     {
       title: t.home.quickLinks.admissions,
-      href: '/programs',
+      href: 'https://gsu.am/hy/dimord/',
       icon: BookOpen,
+      external: true,
     },
     {
       title: t.home.quickLinks.schedule,
-      href: '/students',
+      href: 'https://gsu.am/hy/%d5%aa%d5%a1%d5%b4%d5%a1%d5%b6%d5%a1%d5%af%d5%a1%d6%81%d5%b8%d6%82%d5%b5%d6%81%d5%a5%d6%80/',
       icon: Calendar,
+      external: true,
     },
     {
       title: t.home.quickLinks.library,
-      href: '/students',
+      href: 'https://library.gsu.am',
       icon: BookOpen,
+      external: true,
     },
     {
       title: t.home.quickLinks.portal,
-      href: '/students',
+      href: 'http://learn.gsu.am/',
       icon: Users,
+      external: true,
     },
   ];
 
@@ -196,16 +200,31 @@ export default function HomePage({ language }: HomePageProps) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickLinks.map((link, index) => (
-              <Link
-                key={index}
-                to={link.href}
-                className="group p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg hover:from-blue-100 hover:to-blue-200 transition-all transform hover:scale-105 shadow-md hover:shadow-lg"
-              >
-                <link.icon className="h-12 w-12 text-blue-800 mb-4 group-hover:text-blue-600 transition-colors" />
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-800 transition-colors">
-                  {link.title}
-                </h3>
-              </Link>
+              link.external ? (
+                <a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg hover:from-blue-100 hover:to-blue-200 transition-all transform hover:scale-105 shadow-md hover:shadow-lg"
+                >
+                  <link.icon className="h-12 w-12 text-blue-800 mb-4 group-hover:text-blue-600 transition-colors" />
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-800 transition-colors">
+                    {link.title}
+                  </h3>
+                </a>
+              ) : (
+                <Link
+                  key={index}
+                  to={link.href}
+                  className="group p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg hover:from-blue-100 hover:to-blue-200 transition-all transform hover:scale-105 shadow-md hover:shadow-lg"
+                >
+                  <link.icon className="h-12 w-12 text-blue-800 mb-4 group-hover:text-blue-600 transition-colors" />
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-800 transition-colors">
+                    {link.title}
+                  </h3>
+                </Link>
+              )
             ))}
           </div>
         </div>

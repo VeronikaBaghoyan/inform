@@ -18,12 +18,12 @@ export default function Header({ language, setLanguage, setShowAdmin }: HeaderPr
   const navigation = [
     { name: t.nav.home, href: '/' },
     { name: t.nav.about, href: '/about' },
-    { name: t.nav.staff, href: '/staff' },
     { name: t.nav.programs, href: '/programs' },
+    { name: t.nav.staff, href: '/staff' },
     { name: t.nav.research, href: '/research' },
     { name: t.nav.news, href: '/news' },
-    { name: t.nav.gallery, href: '/gallery' },
     { name: t.nav.students, href: '/students' },
+    { name: t.nav.gallery, href: '/gallery' },
     { name: t.nav.contact, href: '/contact' },
   ];
 

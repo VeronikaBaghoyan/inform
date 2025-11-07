@@ -3,12 +3,12 @@ export const translations = {
     nav: {
       home: 'Գլխավոր',
       about: 'Մեր մասին',
-      staff: 'Անձնակազմ',
-      programs: 'Ծրագրեր',
+      programs: 'Կրթական ծրագիր',
+      staff: 'Դասախոսներ',
       research: 'Գիտական գործունեություն',
       news: 'Նորություններ',
-      gallery: 'Պատկերասրահ',
       students: 'Ուսանողներին',
+      gallery: 'Պատկերասրահ',
       contact: 'Կապ',
     },
     home: {
@@ -30,7 +30,7 @@ export const translations = {
         admissions: 'Ընդունելություն',
         schedule: 'Ժամանակացույց',
         library: 'Գրադարան',
-        portal: 'Ուսանողական պորտալ',
+        portal: 'Էլեկտրոնային ուսուցման համակարգ',
       },
     },
     about: {
@@ -178,12 +178,12 @@ export const translations = {
     nav: {
       home: 'Home',
       about: 'About Us',
-      staff: 'Staff',
-      programs: 'Programs',
+      programs: 'Educational Program',
+      staff: 'Lecturers',
       research: 'Research',
       news: 'News',
-      gallery: 'Gallery',
       students: 'Students',
+      gallery: 'Gallery',
       contact: 'Contact',
     },
     home: {
@@ -205,7 +205,7 @@ export const translations = {
         admissions: 'Admissions',
         schedule: 'Schedule',
         library: 'Library',
-        portal: 'Student Portal',
+        portal: 'E-Learning System',
       },
     },
     about: {
@@ -353,12 +353,12 @@ export const translations = {
     nav: {
       home: 'Главная',
       about: 'О нас',
-      staff: 'Персонал',
-      programs: 'Программы',
+      programs: 'Образовательная программа',
+      staff: 'Преподаватели',
       research: 'Научная деятельность',
       news: 'Новости',
-      gallery: 'Галерея',
       students: 'Студентам',
+      gallery: 'Галерея',
       contact: 'Контакт',
     },
     home: {
@@ -380,7 +380,7 @@ export const translations = {
         admissions: 'Поступление',
         schedule: 'Расписание',
         library: 'Библиотека',
-        portal: 'Студенческий портал',
+        portal: 'Система электронного обучения',
       },
     },
     about: {
