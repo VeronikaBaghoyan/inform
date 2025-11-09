@@ -1,6 +1,4 @@
-import { History, Target, Users, Building, Crown } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
+import { History, Target, Users, Building } from 'lucide-react';
 import { translations } from '../utils/translations';
 
 interface AboutPageProps {

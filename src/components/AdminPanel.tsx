@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
-import { X, Plus, CreditCard as Edit, Trash2, Save, Upload, Image, FileText, Users, Crown } from 'lucide-react';
+import { useState } from 'react';
+import { X, Plus, CreditCard as Edit, Trash2, Save, Upload, Image, FileText } from 'lucide-react';
 import { translations } from '../utils/translations';
-import { createClient } from '@supabase/supabase-js';
 
 interface AdminPanelProps {
   language: 'am' | 'en' | 'ru';
@@ -15,18 +14,6 @@ interface ContentItem {
   content?: { am: string; en: string };
   image?: string;
   date?: string;
-}
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-interface DepartmentHead {
-  id: string;
-  name: string;
-  start_year?: number;
-  end_year?: number;
-  order: number;
 }
 
 export default function AdminPanel({ language, onClose }: AdminPanelProps) {
