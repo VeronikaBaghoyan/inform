@@ -1,12 +1,48 @@
-import { History, Target, Building } from 'lucide-react';
+import { History, Target, Users, Building, Crown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { createClient } from '@supabase/supabase-js';
 import { translations } from '../utils/translations';
 
 interface AboutPageProps {
   language: 'am' | 'en' | 'ru';
 }
 
+interface DepartmentHead {
+  id: string;
+  name: string;
+  start_year?: number;
+  end_year?: number;
+  order: number;
+}
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 export default function AboutPage({ language }: AboutPageProps) {
   const t = translations[language];
+  const [departmentHeads, setDepartmentHeads] = useState<DepartmentHead[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadDepartmentHeads();
+  }, []);
+
+  const loadDepartmentHeads = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('department_heads')
+        .select('*')
+        .order('order', { ascending: true });
+
+      if (error) throw error;
+      setDepartmentHeads(data || []);
+    } catch (error) {
+      console.error('Error loading department heads:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="py-16">
@@ -133,6 +169,35 @@ export default function AboutPage({ language }: AboutPageProps) {
           </div>
         </div>
 
+        {/* Department Heads Section */}
+        {!loading && departmentHeads.length > 0 && (
+          <div className="mb-16">
+            <div className="flex items-center mb-8">
+              <Crown className="h-8 w-8 text-yellow-600 mr-3" />
+              <h2 className="text-3xl font-bold text-gray-900">
+                {language === 'am' ? 'Ամբիոնի վարիչներ' : language === 'ru' ? 'Руководители кафедры' : 'Department Heads'}
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {departmentHeads.map((head) => (
+                <div key={head.id} className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-yellow-600">
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 text-lg">
+                        {head.name}
+                      </h3>
+                      {head.start_year && (
+                        <p className="text-sm text-gray-600 mt-2">
+                          {head.start_year}{head.end_year ? ` - ${head.end_year}` : ''}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Statistics */}
         <div className="bg-gradient-to-r from-blue-800 to-blue-900 text-white rounded-xl p-12">

@@ -23,7 +23,7 @@ export default function Footer({ language }: FooterProps) {
                     ? 'ք․ Գավառ, Հրանտ Հակոբյան 1'
                     : language === 'ru'
                     ? 'г. Гавар, ул. Гранта Акопяна, 1'
-                    : '1  Hrant Hakobyan  Street, Gavar'}
+                    : 'Hrant Hakobyan 1  Street, Gavar'}
                 </p>
               </div>
               <div className="flex items-center space-x-3">
