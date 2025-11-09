@@ -42,7 +42,7 @@ export default function ContactPage({ language }: ContactPageProps) {
         ? 'ք․ Գավառ, Հրանտ Հակոբյան 1'
         : language === 'ru'
         ? 'г. Гавар, ул. Гранта Акопяна, 1'
-        : '1  Hrant Hakobyan Street, Gavar',
+        : 'Hrant Hakobyan 1 Street, Gavar',
       color: 'text-red-600',
       bgColor: 'bg-red-100'
     },
