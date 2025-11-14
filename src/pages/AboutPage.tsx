@@ -17,7 +17,7 @@ interface DepartmentHead {
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
 export default function AboutPage({ language }: AboutPageProps) {
   const t = translations[language];
@@ -29,6 +29,11 @@ export default function AboutPage({ language }: AboutPageProps) {
   }, []);
 
   const loadDepartmentHeads = async () => {
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+
     try {
       const { data, error } = await supabase
         .from('department_heads')

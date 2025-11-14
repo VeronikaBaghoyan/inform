@@ -19,7 +19,7 @@ interface ContentItem {
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
 interface DepartmentHead {
   id: string;
@@ -46,6 +46,11 @@ export default function AdminPanel({ language, onClose }: AdminPanelProps) {
   }, [activeTab]);
 
   const loadDepartmentHeads = async () => {
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     try {
       const { data, error } = await supabase
@@ -63,6 +68,8 @@ export default function AdminPanel({ language, onClose }: AdminPanelProps) {
   };
 
   const saveHeadToDatabase = async (head: DepartmentHead) => {
+    if (!supabase) return;
+
     try {
       if (head.id && head.id !== 'new') {
         const { error } = await supabase
@@ -98,6 +105,8 @@ export default function AdminPanel({ language, onClose }: AdminPanelProps) {
   };
 
   const deleteHeadFromDatabase = async (id: string) => {
+    if (!supabase) return;
+
     if (!confirm(language === 'am' ? 'Համոզվա՞ծ եք, որ ուզում եք ջնջել:' : 'Are you sure you want to delete?')) {
       return;
     }
