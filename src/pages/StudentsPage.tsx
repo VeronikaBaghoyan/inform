@@ -302,6 +302,31 @@ export default function StudentsPage({ language }: StudentsPageProps) {
                     {language === 'am' ? 'Անցնել' : 'Access'}
                   </a>
                 </div>
+                <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all transform hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 rounded-lg mr-4 bg-red-100">
+                      <BookOpen className="h-6 w-6 text-red-600" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {language === 'am' ? 'Տեսադասեր' : 'Video Lectures'}
+                      </h3>
+                    </div>
+                    <ExternalLink className="h-4 w-4 text-gray-400" />
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    {language === 'am'
+                      ? 'Տեսաձայնային դասեր և եվ ուսումնական նյութեր'
+                      : 'Video lectures and educational materials'}
+                  </p>
+                  <a
+                    href="https://albdarb.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-2 px-4 rounded-lg font-medium transition-colors text-center bg-red-600 hover:bg-red-700 text-white">
+                    {language === 'am' ? 'Անցնել' : 'Access'}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
